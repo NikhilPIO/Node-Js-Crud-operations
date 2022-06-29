@@ -1,31 +1,31 @@
 {
-    "user1":{
+    "prod1":{
     "id":"1",
     "name":"Trimmer",
     "Cost":10,
     "Desc":"Philips"
   },
 
-  "user2":{
+  "prod2":{
     "id":2,
     "name":"Shirt",
     "Cost":100,
     "Desc":"Polo"
   },
 
-  "user3":{
+  "prod3":{
     "id":3,
     "name":"T-shirt",
     "Cost":200,
     "Desc":"Lycra"
   },
 
-  "user4":{
+  "prod4":{
     "id":4,
     "name":"Jeans",
     "Cost":200,
     "Desc":"Denim"
   }
 
-]
+
 }
