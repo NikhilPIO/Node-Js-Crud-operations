@@ -7,7 +7,7 @@ var fs = require('fs');
 app.use(express.static('static'));
 
 app.get('/getUsers', function(req, res){
-  fs.readFile(__dirname + "/" + "user.json", 'utf8', function(err, data){
+  fs.readFile(__dirname + "/" + "db.json", 'utf8', function(err, data){
       console.log(data);
       res.end(data); 
   });
