@@ -18,29 +18,38 @@ app.get('/getUsers', function(req, res){
 })
 
 var prod = {
-    "prod5": {
-    "id":5,
-    "name":"Shirt",
-    "Cost":200,
-    "Desc":"US Polo"
-    }
-} 
+  "prod5": {
+  "id":5,
+  "name":"Shirt",
+  "Cost":200,
+  "Desc":"US Polo"
+  }
+};
 
 //addUser endpoint
-app.post('/addUser', function(req, res){
+app.get('/addUser', function(req, res){
   //Step 2: read existing users
-  fs.readFile(__dirname + "/" + "db.json", 'utf8', function(err, data){
+    fs.readFile(__dirname + "/" + "db.json", 'utf8', function(err, data){
       data = JSON.parse(data);
-      //Step 3: append user variable to list
       data["prod5"] = prod["prod5"];
-      console.log(data);
-      res.end(JSON.stringify(data));
-  });
+      //Step 3: append user variable to list
+      var jsonContent = JSON.stringify(data);
+      
+      fs.writeFile("db.json", jsonContent, 'utf8', function (err) {
+        if (err) {
+            console.log("An error occured while writing JSON Object to File.");
+            return console.log(err);
+        }
+     
+        console.log("JSON file has been saved.");
+    });
+});
 })
+
 
 //delete a user by id
 var id = 3;
-app.delete('/deleteUser', function (req, res) {
+app.get('/deleteUser', function (req, res) {
    // First retrieve existing users
    fs.readFile( __dirname + "/" + "db.json", 'utf8', function (err, data) {
       data = JSON.parse( data );
