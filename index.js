@@ -44,6 +44,7 @@ app.get('/addProd', function(req, res){
         }
      
         console.log("JSON file has been saved.");
+        res.end( JSON.stringify(data));
     });
 });
 })
@@ -51,14 +52,16 @@ app.get('/addProd', function(req, res){
 
 //delete a product by id
 var id = 3;
+
 app.get('/deleteProd', function (req, res) {
    // First retrieve existing users
    fs.readFile( __dirname + "/" + "db.json", 'utf8', function (err, data) {
       data = JSON.parse( data );
       delete data["prod" + id];
-       
-      console.log( data );
-      res.end( JSON.stringify(data));
+     
+        console.log( data );
+        res.end( JSON.stringify(data));
+      
    });
 })
 
@@ -66,12 +69,13 @@ app.get('/deleteProd', function (req, res) {
 app.get('/UpdateProd', function (req, res) {
   const fileName = './db.json';
   const file = require(fileName);
-  file.prod4.Cost = 350; 
+  file.prod4.Cost = 250; 
   
   fs.writeFile("db.json", JSON.stringify(file), function writeJSON(err) {
     if (err) return console.log(err);
-    console.log(JSON.stringify(file));
+    
     console.log('writing to ' + fileName);
+    console.log(JSON.stringify(file));
   });
 
 
