@@ -1,31 +1,32 @@
-{"users":[
-  {
-    "id":"1",
-    "name":"Trimmer",
-    "Cost":10,
-    "Desc":"Philips"
-  },
-{
-  
-    "id":2,
-    "name":"Shirt",
-    "Cost":100,
-    "Desc":"Polo"
-  },
-{
-   
-    "id":3,
-    "name":"T-shirt",
-    "Cost":200,
-    "Desc":"Lycra"
-  },
-{
-  
-    "id":4,
-    "name":"Jeans",
-    "Cost":200,
-    "Desc":"Denim"
-  }
 
-]
+{
+  "prod1":{
+  "id":"1",
+  "name":"Trimmer",
+  "Cost":10,
+  "Desc":"Philips"
+},
+
+"prod2":{
+  "id":2,
+  "name":"Shirt",
+  "Cost":100,
+  "Desc":"Polo"
+},
+
+"prod3":{
+  "id":3,
+  "name":"T-shirt",
+  "Cost":200,
+  "Desc":"Lycra"
+},
+
+"prod4":{
+  "id":4,
+  "name":"Jeans",
+  "Cost":200,
+  "Desc":"Denim"
+}
+
+
 }
