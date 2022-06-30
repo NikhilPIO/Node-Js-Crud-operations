@@ -62,7 +62,7 @@ app.get('/deleteProd', function (req, res) {
         res.end( JSON.stringify(data));  
      
   });   
-   });
+  });
 })
 
 //update product price
@@ -78,7 +78,6 @@ app.get('/UpdateProd', function (req, res) {
     console.log(JSON.stringify(file));
     res.end( JSON.stringify(file));
   });
-
 })
 
 app.listen(port, () => {
