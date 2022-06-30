@@ -66,7 +66,7 @@ app.get('/deleteProd', function (req, res) {
 app.get('/UpdateProd', function (req, res) {
   const fileName = './db.json';
   const file = require(fileName);
-  file.prod4.Cost = 250; 
+  file.prod4.Cost = 350; 
   
   fs.writeFile("db.json", JSON.stringify(file), function writeJSON(err) {
     if (err) return console.log(err);
