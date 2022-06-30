@@ -5,8 +5,10 @@ const path = require('path');
 const bodyParser = require('body-parser');
 var fs = require('fs');
 
+
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+
+
 
 app.use(express.static('static'));
 //to get product data
@@ -60,6 +62,20 @@ app.get('/deleteProd', function (req, res) {
    });
 })
 
+
+app.get('/UpdateProd', function (req, res) {
+  const fileName = './db.json';
+  const file = require(fileName);
+  file.prod4.Cost = 150; 
+  
+  fs.writeFile("db.json", JSON.stringify(file), function writeJSON(err) {
+    if (err) return console.log(err);
+    console.log(JSON.stringify(file));
+    console.log('writing to ' + fileName);
+  });
+
+
+})
 
 
 app.listen(port, () => {
