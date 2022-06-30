@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static('static'));
 //to get product data
-app.get('/getUsers', function(req, res){
+app.get('/getProd', function(req, res){
   fs.readFile(__dirname + "/" + "db.json", 'utf8', function(err, data){
       console.log(data);
       res.end(data); 
@@ -26,8 +26,8 @@ var prod = {
   }
 };
 
-//addUser endpoint
-app.get('/addUser', function(req, res){
+//add product endpoint
+app.get('/addProd', function(req, res){
   //Step 2: read existing users
     fs.readFile(__dirname + "/" + "db.json", 'utf8', function(err, data){
       data = JSON.parse(data);
@@ -47,9 +47,9 @@ app.get('/addUser', function(req, res){
 })
 
 
-//delete a user by id
+//delete a product by id
 var id = 3;
-app.get('/deleteUser', function (req, res) {
+app.get('/deleteProd', function (req, res) {
    // First retrieve existing users
    fs.readFile( __dirname + "/" + "db.json", 'utf8', function (err, data) {
       data = JSON.parse( data );
