@@ -65,6 +65,7 @@ app.get('/deleteProd', function (req, res) {
    });
 })
 
+//update product price
 app.get('/UpdateProd', function (req, res) {
   const fileName = './db.json';
   const file = require(fileName);
