@@ -5,12 +5,9 @@ const path = require('path');
 const bodyParser = require('body-parser');
 var fs = require('fs');
 
-
 app.use(bodyParser.json());
-
-
-
 app.use(express.static('static'));
+
 //to get product data
 app.get('/getProd', function(req, res){
   fs.readFile(__dirname + "/" + "db.json", 'utf8', function(err, data){
@@ -41,14 +38,12 @@ app.get('/addProd', function(req, res){
         if (err) {
             console.log("An error occured while writing JSON Object to File.");
             return console.log(err);
-        }
-     
+        }     
         console.log("JSON file has been saved.");
         res.end( JSON.stringify(data));
     });
 });
 })
-
 
 //delete a product by id
 var id = 3;
@@ -58,29 +53,32 @@ app.get('/deleteProd', function (req, res) {
    fs.readFile( __dirname + "/" + "db.json", 'utf8', function (err, data) {
       data = JSON.parse( data );
       delete data["prod" + id];
-     
+      fs.writeFile("db.json", JSON.stringify(data), 'utf8', function writeJSON(err) {
+        if (err) {
+          console.log("An error occured while writing JSON Object to File.");
+          return console.log(err); 
+        }
         console.log( data );
-        res.end( JSON.stringify(data));
-      
+        res.end( JSON.stringify(data));  
+     
+  });   
    });
 })
-
 
 app.get('/UpdateProd', function (req, res) {
   const fileName = './db.json';
   const file = require(fileName);
-  file.prod4.Cost = 250; 
+  file.prod4.Cost = 350; 
   
   fs.writeFile("db.json", JSON.stringify(file), function writeJSON(err) {
     if (err) return console.log(err);
     
     console.log('writing to ' + fileName);
     console.log(JSON.stringify(file));
+    res.end( JSON.stringify(file));
   });
 
-
 })
-
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
